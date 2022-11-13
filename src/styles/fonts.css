@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Berlin Sans FB Regular";
+    src: local("Berlin-Sans-FB-Regular"),
+     url("../fonts/Berlin-Sans-FB-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Lucida Sans Regular";
+    src: local("Lucida-Sans-Regular"),
+     url("../fonts/Lucida-Sans-Regular.ttf") format("truetype");
+}
