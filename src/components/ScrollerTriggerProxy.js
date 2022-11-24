@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLocomotiveScroll } from "react-locomotive-scroll/module/useLocomotiveScroll.hook";
 import gsap from "gsap";
@@ -14,12 +14,13 @@ const ScrollerTriggerProxy = () => {
     if (scroll) {
       // locomotive scrolling element, in this case it's app
       const element = scroll?.el;
-
+      
       // on scroll of locomotive, update ScrollTrigger
       scroll.on("scroll", ScrollTrigger.update);
+      // scroll.on("scroll");
 
       // use scrollerProxy?
-      // tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
+      // tell ScrollTrigger to use these proxy methods for the "element" element since Locomotive Scroll is hijacking things
       ScrollTrigger.scrollerProxy(element, {
         scrollTop(value) {
           return arguments.length

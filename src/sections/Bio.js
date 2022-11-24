@@ -15,7 +15,7 @@ const BioContainer = styled(motion.div)`
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  padding-top: 4rem;
+  padding-top: 1rem;
 `;
 
 const Left = styled(motion.div)`
@@ -73,7 +73,7 @@ const TextAnimation = {
   show: {
     opacity: 1,
     transition: {
-      delayChildren: 0.25,
+      delayChildren: 1,
       staggerChildren: 0.3,
     },
   },

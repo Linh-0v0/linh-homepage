@@ -1,7 +1,7 @@
 import GlobalStyles from "./styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { lightTheme } from "./styles/Themes";
-import { LocomotiveScrollProvider } from "react-locomotive-scroll";
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { useRef, useLayoutEffect } from "react";
 import Home from "./sections/Home";
 import { AnimatePresence } from "framer-motion";
@@ -11,13 +11,14 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Bio from "./sections/Bio";
 import NavBar from "./components/NavBar";
-import "./App.css"
+import "./App.css";
 import PersonalProjects from "./sections/PersonalProjects";
 import PersonalProj from "./sections/PersonalProj";
 import SchoolProjects from "./sections/SchoolProjects";
 
 function App() {
   gsap.registerPlugin(ScrollTrigger);
+  console.log("hello from App");
 
   const containerRef = useRef(null);
   useLayoutEffect(() => {
@@ -74,11 +75,21 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={lightTheme}> 
+     
         <LocomotiveScrollProvider
           options={{
             smooth: true,
+            lerp: 0.05,
             // ... all available Locomotive Scroll instance options
+            mobile: {
+              breakpoint: 0,
+              smooth: true,
+            },
+            tablet: {
+              breakpoint: 0,
+              smooth: true,
+            },
           }}
           watch={
             [
@@ -91,20 +102,19 @@ function App() {
         >
           <ScrollerTriggerProxy />
           <AnimatePresence>
-          <NavBar />
+            <NavBar />
             <main className="App" data-scroll-container ref={containerRef}>
-            
               <section className="panel beige">
                 <Home />
               </section>
-              <section className="panel white" style={{"marginTop": "0.25rem"}}>
+              <section className="panel white" style={{ marginTop: "0.25rem" }}>
                 <Intro />
               </section>
-              <section className="panel pink" style={{"marginTop": "0.25rem"}}>
+              <section className="panel pink" style={{ marginTop: "0.25rem" }}>
                 <Bio />
               </section>
-              <section className="panel gray" style={{"marginTop": "0.25rem"}}>
-              <PersonalProjects />
+              <section className="panel gray" style={{ marginTop: "0.25rem" }}>
+                <PersonalProjects />
               </section>
               <SchoolProjects />
             </main>
